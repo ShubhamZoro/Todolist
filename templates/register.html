@@ -13,10 +13,7 @@
         <h2 style="text-align:center">Register to add Todo list</h2>
       <div style="padding:10px" class="col-lg-8 col-md-10 mx-auto content">
 
-        <div>{{ wtf.form_field(form.email) }}</div>
-        <div>{{ wtf.form_field(form.password) }}</div>
-        <div>{{ wtf.form_field(form.name) }}</div>
-        <div class="btn "style="margin-top:5px">{{ wtf.form_field(form.submit) }}</div>
+       {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
       </div>
     </div>
   </div>
