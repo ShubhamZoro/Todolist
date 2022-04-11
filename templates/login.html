@@ -12,9 +12,7 @@
       <h2 style="text-align:center">Login to see Your Todo LIST</h2>
       <div style="padding:10px" class="col-lg-8 col-md-10 mx-auto content">
 
-        <div style="padding-bottom:20px">{{ wtf.form_field(form.email) }}</div>
-        <div style="padding-bottom:20px">{{ wtf.form_field(form.password) }}</div>
-        <div class="btn "style="margin-top:10px">{{ wtf.form_field(form.submit) }}</div>
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
       </div>
     </div>
   </div>
