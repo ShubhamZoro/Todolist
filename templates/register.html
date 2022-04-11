@@ -1,0 +1,25 @@
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <!-- Page Header -->
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <h2 style="text-align:center">Register to add Todo list</h2>
+      <div style="padding:10px" class="col-lg-8 col-md-10 mx-auto content">
+
+        <div>{{ wtf.form_field(form.email) }}</div>
+        <div>{{ wtf.form_field(form.password) }}</div>
+        <div>{{ wtf.form_field(form.name) }}</div>
+        <div class="btn "style="margin-top:5px">{{ wtf.form_field(form.submit) }}</div>
+      </div>
+    </div>
+  </div>
+
+{% include "footer.html" %}
+{% endblock %}
