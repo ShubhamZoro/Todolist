@@ -1,0 +1,23 @@
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <!-- Page Header -->
+
+
+  <div class="container">
+    <div class="row">
+      <h2 style="text-align:center">Login to see Your Todo LIST</h2>
+      <div style="padding:10px" class="col-lg-8 col-md-10 mx-auto content">
+
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+        <button type="submit" class="btn btn-primary" id="sendMessageButton"><a  href="{{ url_for('ResetPassword') }}">Reset_Password</a></button>
+      </div>
+    </div>
+  </div>
+
+
+{% include "footer.html" %}
+{% endblock %}

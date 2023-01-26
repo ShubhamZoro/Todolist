@@ -1,0 +1,37 @@
+{% include "header.html" %}
+{% block content %}
+    <h2 style="text-align:center";>Hello {{current_user.name}}</h2>
+    {% if  not current_user.is_authenticated: %}
+        <h3 style="text-align:center";>Please Login or Register</h3>
+    {% endif %}
+    <h2 style="padding-left:40px";>My To Do List</h2>
+    <div style="padding-left:40px";>
+        {% if  current_user.is_authenticated: %}
+            {% for list in lists %}
+                <li style="display:block";>{{list.todo}}
+
+               <a href="{{url_for('delete_list', list_id=list.id) }}">✘</a>
+
+    </li>
+            {% endfor %}
+        {% endif %}
+        </div>
+    <div id="myDIV" class="header">
+
+    <form name="Todolist" action = "/add" method = "post">
+
+      <br>
+      <textarea class="textarea"   name = "description" >
+
+      </textarea><br>
+        <button type="submit" class="btn btn-primary" id="sendMessageButton">add</button>
+
+   </form>
+
+
+  </div>
+
+
+
+{% include "footer.html" %}
+{% endblock %}
