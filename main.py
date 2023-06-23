@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, redirect, url_for, flash,request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
@@ -56,7 +57,8 @@ class Todo( db.Model):
     todo = db.Column(db.String(500))
     todo1=relationship("User", back_populates="todo2")
 
-db.create_all()
+with app.app_context():
+    db.create_all()
 
 
 @app.route('/')
@@ -163,4 +165,5 @@ def delete_list(list_id):
 
 
 if __name__ == "__main__":
+
     app.run(debug=True)
