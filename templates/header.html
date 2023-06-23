@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo-list</title>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <link href="static/style.css" rel="stylesheet">
+</head>
+<body>
+  
+    <div class="Navbar">
+   <div class="Navbar__Link Navbar__Link-brand">
+        <a class="navbar-brand" href="{{url_for('home')}}">Todolist</a>
+    </div>
+    <div class="Navbar__Link Navbar__Link-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+  <nav class="Navbar__Items Navbar__Items--right">
+      <div>
+      <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+    </div>
+       {% if not current_user.is_authenticated: %}
+    <div class="Navbar__Link">
+      <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+    </div>
+    <div class="Navbar__Link">
+      <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+    </div>
+      {% else: %}
+    <div class="Navbar__Link">
+      <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+    </div>
+       {% endif %}
+    <div class="Navbar__Link">
+      <a class="nav-link" href="#footer">Contact</a>
+    </div>
+  </nav>
+        <script>
+    function classToggle() {
+      const navs = document.querySelectorAll('.Navbar__Items')
+
+      navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
+    }
+
+    document.querySelector('.Navbar__Link-toggle')
+      .addEventListener('click', classToggle);
+</script>
+</div>
+    
+  
+  
+  
