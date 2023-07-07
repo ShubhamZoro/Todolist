@@ -13,6 +13,9 @@
       <div style="padding:10px" class="col-lg-8 col-md-10 mx-auto content">
 
         {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+        
+      </div>
+      <div class="col-lg-8 col-md-10 mx-auto content" style="margin-top:20px">
         <button type="submit" class="btn btn-primary" id="sendMessageButton"><a  href="{{ url_for('ResetPassword') }}">Reset_Password</a></button>
       </div>
     </div>

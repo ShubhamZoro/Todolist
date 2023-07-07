@@ -66,7 +66,7 @@ def home():
     list = Todo.query.all()
     return render_template("index.html",lists=list,current_user=current_user)
 
-@app.route('/add',methods=["POST"])
+@app.route('/api/todo/add',methods=["POST"])
 def add():
     if request.method=="POST":
         print(request.form.get('todo'))
@@ -154,7 +154,7 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route("/delete/<int:list_id>")
+@app.route("/api/todo/delete/<int:list_id>")
 
 def delete_list(list_id):
     post_to_delete = Todo.query.get(list_id)
